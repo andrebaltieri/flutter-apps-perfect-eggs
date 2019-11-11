@@ -1,14 +1,14 @@
+import 'package:egg/blocs/app.bloc.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Eggs extends StatelessWidget {
-  final String state;
-
-  Eggs({@required this.state});
-
   @override
   Widget build(BuildContext context) {
-    switch (state) {
+    final bloc = Provider.of<AppBloc>(context);
+
+    switch (bloc.state) {
       case "stopped":
         return stopped();
       case "cooking":
